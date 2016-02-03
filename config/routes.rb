@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'projects/index'
 
 get "/" => "site#home"
 
-get "/contact"  => "site#contact"
+get  "/projects" => "projects#index"
 
+get "/projects/:id" => "projects#show"     #show rill give a single project 
+
+get "/projects/:project_id/entries" => "entries#index"  #index shows multiples entries
+
+
+end
 
 
 
@@ -60,4 +65,3 @@ get "/contact"  => "site#contact"
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

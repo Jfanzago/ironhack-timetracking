@@ -3,8 +3,7 @@ class SiteController < ApplicationController
 		render "home"
 	end	
 
-
-	def contact
-		render "contact"
+	def index
+		render "index"
 	end	
 end 	
