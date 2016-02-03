@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  get 'projects/index'
 
 get "/" => "site#home"
 
-get  "/projects" => "projects#index"
+# get  "/projects" => "projects#index"
+# get "/projects/:id" => "projects#show"     #show rill give a single project 
+# get "/projects/:project_id/entries" => "entries#index"  #index shows multiples entries
+# get "/projects/:project_id/entries/new" => "entries#new"
+# post "/projects/:project_id/entries" => "entries#create", as: :project_entries
 
-get "/projects/:id" => "projects#show"     #show rill give a single project 
-
-get "/projects/:project_id/entries" => "entries#index"  #index shows multiples entries
-
+ #.resources is a ruby method 
+resources(:projects, only: [:index, :show, :new,  :create, ]) do
+  resources :entries, only: [:index, :new, :create]
+end 
 
 end
 

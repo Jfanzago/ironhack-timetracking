@@ -4,10 +4,6 @@ class Project < ActiveRecord::Base
 	uniqueness: true, 
 	length: {maximum: 30}, format: {width: /(\w|\s)+/}
 
-
-
-
-
 	has_many :entries
 	def self.clean_old
 	where("created_at < ?", 1.week.ago).destroy_all
