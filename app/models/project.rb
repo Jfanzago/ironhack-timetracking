@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 	validates :name, 
 	presence: true, 
 	uniqueness: true, 
-	length: {maximum: 30}, format: {width: /(\w|\s)+/}
+	length: {maximum: 30}, format: {with: /(\w|\s)+/}
 
 	has_many :entries
 	def self.clean_old

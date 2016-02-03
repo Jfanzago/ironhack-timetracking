@@ -9,7 +9,7 @@ class Entry < ActiveRecord::Base
 	presence: true
 	validates :date, 
 	presence: true
-	validate :project_id,
+	validates :project_id,
 	presence: true
 
 end
