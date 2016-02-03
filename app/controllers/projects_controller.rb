@@ -1,20 +1,15 @@
 class ProjectsController < ApplicationController
-  def index
-  	@projects = Project.limit(10)
-  	if @projects.empty?
-  		render "no_projects" 
-  	else
-  	  	render "index"
-  	end 	
-  end
   
+  def index
+    @projects = Project.limit(10)
+    render 'index'
+  end
+
   def show
-  	id = params[:id]
-  	@project= Project.find(params[:id])
-  end	
-
-
-
+    @project = Project.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render 'project_not_found'
+  end
 
 end
 

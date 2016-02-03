@@ -10,7 +10,7 @@ get "/" => "site#home"
 
  #.resources is a ruby method 
 resources(:projects, only: [:index, :show, :new,  :create, ]) do
-  resources :entries, only: [:index, :new, :create]
+  resources :entries, only: [:index, :new, :create, :edit, :update]
 end 
 
 end

@@ -1,8 +1,10 @@
 <h1>Projects#index</h1>
 <p>Find me in app/views/projects/index.html.erb</p>
- 
- <% @projects.each do |p| %>
-	<li><%=p.id%></li>
-	<%=p.name %><br>
-	Description<%=p.description %> <br><br>
-	<% end %>
+<ul>
+  <% @projects.each do |p| %>
+    <li>
+      <p> <%= "ID [#{p.id}] - Name #{p.name}" %> </p>
+      <%= link_to p.name, project_entries_path(p) %>
+    </li>
+  <% end %>
+</ul>
