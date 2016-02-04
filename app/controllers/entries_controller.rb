@@ -1,4 +1,10 @@
 class EntriesController < ApplicationController
+	def destroy
+		entry = Entry.find(params[:id])
+		entry.destroy
+		redirect_to project_entries_path(params[:project_id])
+	end
+
 	def update
 		@project = Project.find(params[:project_id])
 		@entry = @project.entries.find(params[:id])

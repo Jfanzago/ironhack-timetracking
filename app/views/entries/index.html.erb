@@ -3,6 +3,8 @@
 <ul>
   <% @project.entries.each do |e| %>
     <li><%= "#{e.hours} #{e.minutes}" %></li>
+	<%= link_to("edit", edit_project_entry_path(@project, e)) %>
+	<%= link_to("Delete", project_entry_path(@project, e), method: :delete, data: {confirm: "Are you sure you want to delete"}) %>
   <% end %>
 </ul>
 

@@ -9,8 +9,8 @@ get "/" => "site#home"
 # post "/projects/:project_id/entries" => "entries#create", as: :project_entries
 
  #.resources is a ruby method 
-resources(:projects, only: [:index, :show, :new,  :create, ]) do
-  resources :entries, only: [:index, :new, :create, :edit, :update]
+resources(:projects, only: [:index, :show, :new,  :create, :destroy]) do
+  resources :entries, only: [:index, :new, :create, :edit, :update, :destroy]
 end 
 
 end
